@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Text Positioning</title>
+    <style>
+      .text {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function addRandomText() {
+        const text = document.createElement("div");
+        text.classList.add("text");
+        text.innerHTML = Math.random().toString(36).substring(2, 5);
+        text.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
+        text.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+        document.body.appendChild(text);
+      }
+
+      setInterval(addRandomText, 1000);
+    </script>
+  </body>
+</html>
