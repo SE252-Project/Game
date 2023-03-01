@@ -63,9 +63,21 @@ function startGame() {
   }, 1000);
 }
 
+//按键绑定音效
+function playSound(e) {
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+  if (!audio) return;
+
+  audio.currentTime = 0;
+  audio.play();
+}
+const keys = Array.from(document.querySelectorAll('.key'));
+
 // 绑定事件
 wordInput.addEventListener('input', checkInput);
 startButton.addEventListener('click', startGame);
+window.addEventListener('keydown', playSound);
 // wordInput.addEventListener("keydown", function(event) {
 //   console.log(event.keyCode);
 // });
