@@ -47,31 +47,45 @@
       <div data-key="90" class="key"></div>
     </div>
     
-    <audio data-key="65" src="music/1.mp3"></audio>
-    <audio data-key="66" src="music/1.mp3"></audio>
-    <audio data-key="67" src="music/1.mp3"></audio>
-    <audio data-key="68" src="music/1.mp3"></audio>
-    <audio data-key="69" src="music/1.mp3"></audio>
-    <audio data-key="70" src="music/1.mp3"></audio>
-    <audio data-key="71" src="music/1.mp3"></audio>
-    <audio data-key="72" src="music/1.mp3"></audio>
-    <audio data-key="73" src="music/1.mp3"></audio>
-    <audio data-key="74" src="music/1.mp3"></audio>
-    <audio data-key="75" src="music/1.mp3"></audio>
-    <audio data-key="76" src="music/1.mp3"></audio>
-    <audio data-key="77" src="music/1.mp3"></audio>
-    <audio data-key="78" src="music/1.mp3"></audio>
-    <audio data-key="79" src="music/1.mp3"></audio>
-    <audio data-key="80" src="music/1.mp3"></audio>
-    <audio data-key="81" src="music/1.mp3"></audio>
-    <audio data-key="82" src="music/1.mp3"></audio>
-    <audio data-key="83" src="music/1.mp3"></audio>
-    <audio data-key="84" src="music/1.mp3"></audio>
-    <audio data-key="85" src="music/1.mp3"></audio>
-    <audio data-key="86" src="music/1.mp3"></audio>
-    <audio data-key="87" src="music/1.mp3"></audio>
-    <audio data-key="88" src="music/1.mp3"></audio>
-    <audio data-key="89" src="music/1.mp3"></audio>
-    <audio data-key="90" src="music/1.mp3"></audio>
+    <audio data-key="65" src="music/key1.MP3"></audio>
+    <audio data-key="66" src="music/key2.MP3"></audio>
+    <audio data-key="67" src="music/key3.MP3"></audio>
+    <audio data-key="68" src="music/key4.MP3"></audio>
+    <audio data-key="69" src="music/key5.MP3"></audio>
+    <audio data-key="70" src="music/key6.MP3"></audio>
+    <audio data-key="71" src="music/key7.MP3"></audio>
+    <audio data-key="72" src="music/key8.MP3"></audio>
+    <audio data-key="73" src="music/key9.MP3"></audio>
+    <audio data-key="74" src="music/key10.MP3"></audio>
+    <audio data-key="75" src="music/key11.MP3"></audio>
+    <audio data-key="76" src="music/key12.MP3"></audio>
+    <audio data-key="77" src="music/key13.MP3"></audio>
+    <audio data-key="78" src="music/key14.MP3"></audio>
+    <audio data-key="79" src="music/key15.MP3"></audio>
+    <audio data-key="80" src="music/key16.MP3"></audio>
+    <audio data-key="81" src="music/key17.MP3"></audio>
+    <audio data-key="82" src="music/key18.MP3"></audio>
+    <audio data-key="83" src="music/key19.MP3"></audio>
+    <audio data-key="84" src="music/key20.MP3"></audio>
+    <audio data-key="85" src="music/key21.MP3"></audio>
+    <audio data-key="86" src="music/key22.MP3"></audio>
+    <audio data-key="87" src="music/key23.MP3"></audio>
+    <audio data-key="88" src="music/key24.MP3"></audio>
+    <audio data-key="89" src="music/key10.MP3"></audio>
+    <audio data-key="90" src="music/key20.MP3"></audio>
+    <audio id="bgmusic" src="music/BGM.MP3" autoplay="autoplay" loop="loop" style="display: block; width: 3%; height:3%;"></audio>
+    <script type="text/javascript">
+        function toggleSound() {
+            var music = document.getElementById("bgmusic");//获取ID
+                console.log(music);
+                console.log(music.paused);
+            if (music.paused) { //判读是否播放
+                music.paused=false;
+                music.play(); //没有就播放
+            }
+ 
+        }
+        setInterval("toggleSound()",1);
+    </script>
   </body>
 </html>
