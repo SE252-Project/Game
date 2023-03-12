@@ -9,20 +9,21 @@ const timeLeftSpan = document.getElementById('time-left');
 const scoreSpan = document.getElementById('score');
 // const currentWordSpan = document.getElementById('current-word');
 const wordInput = document.getElementById('word-input');
-// const startButton = document.getElementById('start-button');
-const text = document.createElement("div");
+const startButton = document.getElementById('start-button');
+const text = document.createElement("txt");
 let currentword ="";
 
 // 在指定时间内随机选择单词并显示
 function chooseWord() {
   const randomIndex = Math.floor(Math.random() * words.length);
   // currentWordSpan.innerHTML = words[randomIndex];
-  const text = document.createElement("div");
+  const text = document.createElement("txt");
   text.classList.add("text");
   text.innerHTML = words[randomIndex];
   currentword = text.innerHTML
   text.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
   text.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+  text.style.color = '#e9ebf1'
   document.body.appendChild(text);
 }
 
@@ -34,11 +35,11 @@ function checkInput() {
     score += 10;
     scoreSpan.innerHTML = score;
     wordInput.value = '';
-    const divs = document.getElementsByTagName("div");
+    const txts = document.getElementsByTagName("txt");
 
-// 循环遍历所有的 div 元素，将它们从其父元素中删除
-    for (let i = divs.length - 1; i >= 0; i--) {
-      divs[i].parentNode.removeChild(divs[i]);
+// 循环遍历所有的 txt 元素，将它们从其父元素中删除
+    for (let i = txts.length - 1; i >= 0; i--) {
+      txts[i].parentNode.removeChild(txts[i]);
     }
     chooseWord();
   }
@@ -75,9 +76,7 @@ function playSound(e) {
 }
 const keys = Array.from(document.querySelectorAll('.key'));
 
-startGame();
 // 绑定事件
-
 wordInput.addEventListener('input', checkInput);
 // startButton.addEventListener('click', startGame);
 window.addEventListener('keydown', playSound);
