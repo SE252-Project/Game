@@ -9,7 +9,7 @@ const timeLeftSpan = document.getElementById('time-left');
 const scoreSpan = document.getElementById('score');
 // const currentWordSpan = document.getElementById('current-word');
 const wordInput = document.getElementById('word-input');
-const startButton = document.getElementById('start-button');
+// const startButton = document.getElementById('start-button');
 const text = document.createElement("div");
 let currentword ="";
 
@@ -46,7 +46,7 @@ function checkInput() {
 
 // 开始游戏
 function startGame() {
-  startButton.disabled = true;
+  // startButton.disabled = true;
   chooseWord();
   setInterval(() => {
     timeLeft--;
@@ -59,6 +59,7 @@ function startGame() {
       timeLeft = 60;
       scoreSpan.innerHTML = score;
       timeLeftSpan.innerHTML = timeLeft;
+      window.location.href = "./index.html";
     }
   }, 1000);
 }
@@ -74,9 +75,11 @@ function playSound(e) {
 }
 const keys = Array.from(document.querySelectorAll('.key'));
 
+startGame();
 // 绑定事件
+
 wordInput.addEventListener('input', checkInput);
-startButton.addEventListener('click', startGame);
+// startButton.addEventListener('click', startGame);
 window.addEventListener('keydown', playSound);
 // wordInput.addEventListener("keydown", function(event) {
 //   console.log(event.keyCode);
