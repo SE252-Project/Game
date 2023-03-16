@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
     <title>音乐打字游戏</title>
     <style>
       .text {
@@ -87,8 +90,8 @@
       <script type="text/javascript">
           function toggleSound() {
               var music = document.getElementById("bgmusic");//获取ID
-                  console.log(music);
-                  console.log(music.paused);
+                  // console.log(music);
+                  // console.log(music.paused);
               if (music.paused) { //判读是否播放
                   music.paused=false;
                   music.play(); //没有就播放
