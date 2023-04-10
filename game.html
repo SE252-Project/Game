@@ -12,13 +12,30 @@
       
       body{
             background-image: url("Background/BG2.jpeg");
-            background-color: none;
+            /* background-color: none; */
       }
     
     </style>
     <link rel="stylesheet" type="text/css" href="CSS/text.css">
+    <link rel="stylesheet" type="text/css" href="CSS/loading.css">
   </head>
-  <body>
+
+  <body id = "bg" class="bg" onload="hideLoader()">
+    
+    <!-- 加载动画 -->
+    <!-- <div class="loader"></div> -->
+    <div class="load-wrapp">
+      <div class="load-5">
+        <div class="ring-2">
+          <div class="ball-holder">
+            <div class="ball"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 网页内容 -->
+    <div id="content" class="hide-loader">
+    
     <div class="text1">    
       <h1>音乐打字游戏</h1>
       <p>在规定时间内输入单词以赚取积分</p>
@@ -105,5 +122,7 @@
     <!-- <div class="video-box">
       <video class="video-background" preload="auto" loop playsinline autoplay src="Background/BG2.mp4" tabindex="-1" muted="muted"></video>
     </div> -->
+    </div>
   </body>
+  <script src="JS/loading.js"></script>
 </html>
