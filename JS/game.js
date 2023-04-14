@@ -13,7 +13,6 @@ const startButton = document.getElementById('start-button');
 const text = document.createElement("txt");
 let currentWord ="";
 
-
 // 在指定时间内随机选择单词并显示
 function chooseWord() {
   //准备好要出现的单词
