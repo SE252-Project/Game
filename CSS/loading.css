@@ -1,0 +1,89 @@
+/* 加载动画 */
+/* .loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+   */
+  /* 隐藏加载动画 */
+  .hide-loader {
+      display:none;
+  }
+
+  .bg {
+    background-image: url(../Background/black.png);
+    background-repeat: no-repeat;
+  }
+
+  .load-wrapp {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 0 10px 10px 0;
+    padding: 20px 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    /* background-color: #ffffff; */
+    position:fixed;
+    top:700px;
+    right:10px;
+  }
+  
+  .load-wrapp p {
+    padding: 0 0 20px;
+  }
+  .load-wrapp:last-child {
+    margin-right: 0;
+  }
+
+
+  .ring-2 {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    border: 4px solid #2e124c;
+    border-radius: 100%;
+  }
+
+  
+  .ball-holder {
+    position: absolute;
+    width: 12px;
+    height: 45px;
+    left: 17px;
+    top: 0px;
+  }
+  
+  .ball {
+    position: absolute;
+    top: -11px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #60267d;
+  }
+
+
+  .load-5 .ball-holder {
+    animation: loadingE 1.3s linear infinite;
+  }
+
+  @keyframes loadingE {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
