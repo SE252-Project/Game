@@ -1,128 +1,159 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+
+    <title>Cocos Creator | Surpass 41</title>
+
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <!-- Interaction: -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
-    <title>音乐打字游戏</title>
     <style>
-      .text {
-        position: absolute;
-      }
-      
       body{
-            background-image: url("Background/BG2.jpeg");
-            /* background-color: none; */
+        background-image: url("Background/BG2.jpeg");
+        /* background-color: none; */
+        position: relative;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #word-input {
+        position: absolute;
       }
     
     </style>
-    <link rel="stylesheet" type="text/css" href="CSS/text.css">
-    <link rel="stylesheet" type="text/css" href="CSS/loading.css">
-  </head>
-
-  <body id = "bg" class="bg" onload="hideLoader()">
     
-    <!-- 加载动画 -->
-    <!-- <div class="loader"></div> -->
-    <div class="load-wrapp">
-      <div class="load-5">
-        <div class="ring-2">
-          <div class="ball-holder">
-            <div class="ball"></div>
-          </div>
-        </div>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="CSS/text.css">
+    <!-- <link rel="stylesheet" type="text/css" href="CSS/loading.css"> -->
+
+
+  </head>
+  <body>
+    <h1 class="header">Surpass 41</h1>
+    <h2 class="header">  </h2>
+
+    <div id="GameDiv" cc_exact_fit_screen="false" style="width: 856px; height: 488px;">
+      <div id="Cocos3dGameContainer">
+        <canvas id="GameCanvas" width="856" height="488" tabindex="99"></canvas>
       </div>
     </div>
-    <!-- 网页内容 -->
+
+
     <div id="content" class="hide-loader">
     
-    <div class="text1">    
-      <h1>音乐打字游戏</h1>
-      <p>在规定时间内输入单词以赚取积分</p>
-      <p>时间：<span id="time-left"></span></p>
-      <p>分数：<span id="score"></span></p>
+      <div class="text1">    
+        <!-- <h1>Surpass 41</h1>
+        <p>在规定时间内输入单词以赚取积分</p> -->
+        <p>时间：<span id="time-left"></span></p>
+        <p>分数：<span id="score"></span></p>
+      </div>
+
+      <!-- <p>当前单词：<span id="current-word"></span></p> -->
+      <p id="word-input"></p>
+      <!-- <button id="start-button">开始游戏</button> -->
+      <script src="JS/game.js"></script>
+      <div class="keys">
+        <!--A-->
+        <div data-key="65" class="key"></div>
+        <div data-key="66" class="key"></div>
+        <div data-key="67" class="key"></div>
+        <div data-key="68" class="key"></div>
+        <div data-key="69" class="key"></div>
+        <div data-key="70" class="key"></div>
+        <div data-key="71" class="key"></div>
+        <div data-key="72" class="key"></div>
+        <div data-key="73" class="key"></div>
+        <div data-key="74" class="key"></div>
+        <div data-key="75" class="key"></div>
+        <div data-key="76" class="key"></div>
+        <div data-key="77" class="key"></div>
+        <div data-key="78" class="key"></div>
+        <div data-key="79" class="key"></div>
+        <div data-key="80" class="key"></div>
+        <div data-key="81" class="key"></div>
+        <div data-key="82" class="key"></div>
+        <div data-key="83" class="key"></div>
+        <div data-key="84" class="key"></div>
+        <div data-key="85" class="key"></div>
+        <div data-key="86" class="key"></div>
+        <div data-key="87" class="key"></div>
+        <div data-key="88" class="key"></div>
+        <div data-key="89" class="key"></div>
+        <div data-key="90" class="key"></div>
+      </div>
+      <div class="audio">
+        <audio data-key="65" src="music/click.ogg"></audio>
+        <audio data-key="66" src="music/click.ogg"></audio>
+        <audio data-key="67" src="music/click.ogg"></audio>
+        <audio data-key="68" src="music/click.ogg"></audio>
+        <audio data-key="69" src="music/click.ogg"></audio>
+        <audio data-key="70" src="music/click.ogg"></audio>
+        <audio data-key="71" src="music/click.ogg"></audio>
+        <audio data-key="72" src="music/click.ogg"></audio>
+        <audio data-key="73" src="music/click.ogg"></audio>
+        <audio data-key="74" src="music/click.ogg"></audio>
+        <audio data-key="75" src="music/click.ogg"></audio>
+        <audio data-key="76" src="music/click.ogg"></audio>
+        <audio data-key="77" src="music/click.ogg"></audio>
+        <audio data-key="78" src="music/click.ogg"></audio>
+        <audio data-key="79" src="music/click.ogg"></audio>
+        <audio data-key="80" src="music/click.ogg"></audio>
+        <audio data-key="81" src="music/click.ogg"></audio>
+        <audio data-key="82" src="music/click.ogg"></audio>
+        <audio data-key="83" src="music/click.ogg"></audio>
+        <audio data-key="84" src="music/click.ogg"></audio>
+        <audio data-key="85" src="music/click.ogg"></audio>
+        <audio data-key="86" src="music/click.ogg"></audio>
+        <audio data-key="87" src="music/click.ogg"></audio>
+        <audio data-key="88" src="music/click.ogg"></audio>
+        <audio data-key="89" src="music/click.ogg"></audio>
+        <audio data-key="90" src="music/click.ogg"></audio>
+        <audio id="bgmusic" src="music/ObservingTheStar.ogg.mp3" autoplay="autoplay" loop="loop" style="display: block; width: 3%; height:3%;"></audio>
+        <script type="text/javascript">
+            function toggleSound() {
+                var music = document.getElementById("bgmusic");//获取ID
+                    // console.log(music);
+                    // console.log(music.paused);
+                if (music.paused) { //判读是否播放
+                    music.paused=false;
+                    music.play(); //没有就播放
+                }
+    
+            }
+            setInterval("toggleSound()",1);
+        </script>
+      </div>
     </div>
 
-    <!-- <p>当前单词：<span id="current-word"></span></p> -->
-    <input type="text" id="word-input" placeholder="输入单词">
-    <!-- <button id="start-button">开始游戏</button> -->
-    <script src="JS/game.js"></script>
-    <div class="keys">
-      <!--A-->
-      <div data-key="65" class="key"></div>
-      <div data-key="66" class="key"></div>
-      <div data-key="67" class="key"></div>
-      <div data-key="68" class="key"></div>
-      <div data-key="69" class="key"></div>
-      <div data-key="70" class="key"></div>
-      <div data-key="71" class="key"></div>
-      <div data-key="72" class="key"></div>
-      <div data-key="73" class="key"></div>
-      <div data-key="74" class="key"></div>
-      <div data-key="75" class="key"></div>
-      <div data-key="76" class="key"></div>
-      <div data-key="77" class="key"></div>
-      <div data-key="78" class="key"></div>
-      <div data-key="79" class="key"></div>
-      <div data-key="80" class="key"></div>
-      <div data-key="81" class="key"></div>
-      <div data-key="82" class="key"></div>
-      <div data-key="83" class="key"></div>
-      <div data-key="84" class="key"></div>
-      <div data-key="85" class="key"></div>
-      <div data-key="86" class="key"></div>
-      <div data-key="87" class="key"></div>
-      <div data-key="88" class="key"></div>
-      <div data-key="89" class="key"></div>
-      <div data-key="90" class="key"></div>
-    </div>
-    <div class="audio">
-      <audio data-key="65" src="music/key1.MP3"></audio>
-      <audio data-key="66" src="music/key2.MP3"></audio>
-      <audio data-key="67" src="music/key3.MP3"></audio>
-      <audio data-key="68" src="music/key4.MP3"></audio>
-      <audio data-key="69" src="music/key5.MP3"></audio>
-      <audio data-key="70" src="music/key6.MP3"></audio>
-      <audio data-key="71" src="music/key7.MP3"></audio>
-      <audio data-key="72" src="music/key8.MP3"></audio>
-      <audio data-key="73" src="music/key9.MP3"></audio>
-      <audio data-key="74" src="music/key10.MP3"></audio>
-      <audio data-key="75" src="music/key11.MP3"></audio>
-      <audio data-key="76" src="music/key12.MP3"></audio>
-      <audio data-key="77" src="music/key13.MP3"></audio>
-      <audio data-key="78" src="music/key14.MP3"></audio>
-      <audio data-key="79" src="music/key15.MP3"></audio>
-      <audio data-key="80" src="music/key16.MP3"></audio>
-      <audio data-key="81" src="music/key17.MP3"></audio>
-      <audio data-key="82" src="music/key18.MP3"></audio>
-      <audio data-key="83" src="music/key19.MP3"></audio>
-      <audio data-key="84" src="music/key20.MP3"></audio>
-      <audio data-key="85" src="music/key21.MP3"></audio>
-      <audio data-key="86" src="music/key22.MP3"></audio>
-      <audio data-key="87" src="music/key23.MP3"></audio>
-      <audio data-key="88" src="music/key24.MP3"></audio>
-      <audio data-key="89" src="music/key10.MP3"></audio>
-      <audio data-key="90" src="music/key20.MP3"></audio>
-      <audio id="bgmusic" src="music/BGM.MP3" autoplay="autoplay" loop="loop" style="display: block; width: 3%; height:3%;"></audio>
-      <script type="text/javascript">
-          function toggleSound() {
-              var music = document.getElementById("bgmusic");//获取ID
-                  // console.log(music);
-                  // console.log(music.paused);
-              if (music.paused) { //判读是否播放
-                  music.paused=false;
-                  music.play(); //没有就播放
-              }
-  
-          }
-          setInterval("toggleSound()",1);
-      </script>
-    </div>
-    <!-- 视频背景 -->
-    <!-- <div class="video-box">
-      <video class="video-background" preload="auto" loop playsinline autoplay src="Background/BG2.mp4" tabindex="-1" muted="muted"></video>
-    </div> -->
-    </div>
+    <p class="footer">
+      Created with <a href="https://www.cocos.com/products" title="Cocos Creator">Cocos Creator</a>
+    </p>
+    <!-- Polyfills bundle. -->
+    <script src="src/polyfills.bundle.js" charset="utf-8"> </script>
+
+    <!-- SystemJS support. -->
+    <script src="src/system.bundle.js" charset="utf-8"> </script>
+
+    <!-- Import map -->
+    <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
+
+    <script>
+        System.import('./index.js').catch(function(err) { console.error(err); })
+    </script>
   </body>
-  <script src="JS/loading.js"></script>
 </html>

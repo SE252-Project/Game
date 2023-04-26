@@ -11,44 +11,82 @@ const scoreSpan = document.getElementById('score');
 const wordInput = document.getElementById('word-input');
 const startButton = document.getElementById('start-button');
 const text = document.createElement("txt");
-let currentword ="";
+let currentWord ="";
 
 // 在指定时间内随机选择单词并显示
 function chooseWord() {
+  //准备好要出现的单词
   const randomIndex = Math.floor(Math.random() * words.length);
-  // currentWordSpan.innerHTML = words[randomIndex];
   const text = document.createElement("txt");
   text.classList.add("text");
   text.innerHTML = words[randomIndex];
-  currentword = text.innerHTML
-  text.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
-  text.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
-  text.style.color = '#e9ebf1'
-  document.body.appendChild(text);
+  currentWord = text.innerHTML
+
+  // 切割单词成字母
+  currentWord.split('').forEach(letter => {
+    const letterElement = document.createElement('span');
+    letterElement.classList.add('letter');
+    letterElement.textContent = letter;
+    wordInput.appendChild(letterElement);
+  });
+
+  //单词会随机位置诞生
+  RandomPosition();
+}
+
+//生成一个合理的随机位置
+function RandomPosition() {
+  const windowH = window.innerHeight;
+  const windowW = window.innerWidth;
+
+  const wordH = wordInput.offsetHeight;
+  const wordW = wordInput.offsetWidth;
+
+  const wordTop = Math.floor(Math.random() * (windowH - wordH));
+  const wordLeft = Math.floor(Math.random() * (windowW - wordW));
+
+  wordInput.style.top = wordTop + "px";
+  wordInput.style.left = wordLeft + "px";
+  wordInput.style.color = '#e9ebf1';
 }
 
 // 检查输入是否正确并更新分数
 function checkInput() {
-  console.log("word input: " + wordInput.value);
-  console.log("text: "+ currentword);
-  if (wordInput.value === currentword) {
-    score += 10;
-    scoreSpan.innerHTML = score;
-    wordInput.value = '';
-    const txts = document.getElementsByTagName("txt");
+    const letters = document.querySelectorAll('.letter');
+    let index = 0;
 
-// 循环遍历所有的 txt 元素，将它们从其父元素中删除
-    for (let i = txts.length - 1; i >= 0; i--) {
-      txts[i].parentNode.removeChild(txts[i]);
-    }
-    chooseWord();
-  }
+    // 监听键盘
+    document.addEventListener('keydown', (e) => {
+      if (e.key.length !== 1) {
+        return;
+      }
+
+      //键盘敲击的字母是否与该单词相同
+      if (e.key === currentWord[index]) {
+        letters[index].style.color = '#fa0000';
+        index++;
+
+        if (index === currentWord.length) {
+          //输入完全正确，更新分数并重置计数器
+          score += 10;
+          scoreSpan.innerHTML = score;
+          //刷新wordInput
+          while (wordInput.hasChildNodes()) {
+            wordInput.removeChild(wordInput.firstChild);
+          }
+          index = 0;
+        }
+      } else {
+        //输入错误，需要重新计数直到单词完全拼写正确
+        index = 0;
+      }
+    });
 }
 
 // 开始游戏
 function startGame() {
   // startButton.disabled = true;
-  chooseWord();
+  // chooseWord();
   setInterval(() => {
     timeLeft--;
     timeLeftSpan.innerHTML = timeLeft;
@@ -61,6 +99,10 @@ function startGame() {
       scoreSpan.innerHTML = score;
       timeLeftSpan.innerHTML = timeLeft;
       window.location.href = "./index.html";
+    }
+    else {
+      chooseWord();
+      checkInput();
     }
   }, 1000);
 }
@@ -77,9 +119,11 @@ function playSound(e) {
 const keys = Array.from(document.querySelectorAll('.key'));
 
 // 绑定事件
-wordInput.addEventListener('input', checkInput);
-// startButton.addEventListener('click', startGame);
+window.addEventListener('click', chooseWord);
+window.addEventListener('click', checkInput);
 window.addEventListener('keydown', playSound);
+//wordInput.addEventListener('input', checkInput);
+// startButton.addEventListener('click', startGame);
 // wordInput.addEventListener("keydown", function(event) {
 //   console.log(event.keyCode);
 // });
