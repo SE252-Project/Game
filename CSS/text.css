@@ -1,3 +1,10 @@
 .text1{
     color:antiquewhite;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    position: absolute;
+    z-index: 1;
+    top: 527px;
+    left: 510px;
+    line-height: 1;
 }

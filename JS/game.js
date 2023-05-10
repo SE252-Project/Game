@@ -3,6 +3,7 @@ const words = ['apple', 'banana', 'cherry', 'dragon', 'elephant', 'flower', 'gui
 
 let score = 0; // 初始分数
 let timeLeft = 60; // 初始时间
+let next = 1;//用来判断是否已经输入完一个单词
 
 // 获取 DOM 元素
 const timeLeftSpan = document.getElementById('time-left');
@@ -68,6 +69,7 @@ function checkInput() {
 
         if (index === currentWord.length) {
           //输入完全正确，更新分数并重置计数器
+          next = 1;
           score += 10;
           scoreSpan.innerHTML = score;
           //刷新wordInput
@@ -78,6 +80,9 @@ function checkInput() {
         }
       } else {
         //输入错误，需要重新计数直到单词完全拼写正确
+        for (;index >=0;index--){
+          letters[index].style.color = '#e9ebf1';
+        }
         index = 0;
       }
     });
@@ -119,9 +124,18 @@ function playSound(e) {
 const keys = Array.from(document.querySelectorAll('.key'));
 
 // 绑定事件
-window.addEventListener('click', chooseWord);
-window.addEventListener('click', checkInput);
+// window.addEventListener('click', chooseWord);
+// window.addEventListener('click', checkInput);
 window.addEventListener('keydown', playSound);
+//点击Enter换单词
+window.addEventListener("keydown", function(event) {
+  if (event.key === "Enter" && next == 1) {
+    // 用户按下了enter键，这里插入代码执行相应操作
+    next = 0;
+    chooseWord();
+    checkInput();
+  }
+});
 //wordInput.addEventListener('input', checkInput);
 // startButton.addEventListener('click', startGame);
 // wordInput.addEventListener("keydown", function(event) {
