@@ -15,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <!-- Interaction: -->
+    <link rel="stylesheet" type="text/css" href="CSS/dot.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
@@ -56,7 +57,7 @@
         <script>
           setTimeout(function() {
             document.querySelector('.text1').style.opacity = '1';
-          }, 2500);
+          }, 5000);
         </script>
         <canvas id="GameCanvas" width="1284" height="732" tabindex="99"></canvas>
       </div>
@@ -142,6 +143,12 @@
         </script>
       </div>
     </div>
+    <div id="dot-container">
+      <div id="border">
+        <div id="dot"></div>
+      </div>
+    </div>
+    <script src="JS/dot.js"></script>
 
     <!-- <p class="footer">
       Created with <a href="https://www.cocos.com/products" title="Cocos Creator">Cocos Creator</a>

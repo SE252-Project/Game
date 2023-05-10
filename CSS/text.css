@@ -3,7 +3,7 @@
     opacity: 0;
     transition: opacity 1s ease-out;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 527px;
     left: 510px;
     line-height: 1;
